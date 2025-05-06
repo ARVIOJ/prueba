@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: prueba
+  datasource:
+#    url: jdbc:postgresql://localhost:5433/prueba_dev?currentSchema=elektra
+    url: jdbc:postgresql://host.docker.internal:5433/prueba_dev?currentSchema=elektra
+    username: postgres
+    password: 010228
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  flyway:
+    baseline-on-migrate: true
+    enabled: true
+    locations: classpath:db/migration
+    schemas: elektra
+    default-schema: elektra
+
+server:
+  port: 8080
+
